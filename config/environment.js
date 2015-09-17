@@ -36,7 +36,7 @@ module.exports = function(environment) {
     };
 
     ENV['simple-auth'] = {
-      store: 'simple-auth-session-store:ephemeral',
+      store: 'simple-auth-session-store:local-storage',
       crossOriginWhitelist: ['https://10.105.5.55:9000'],
       authorizer: 'simple-auth-authorizer:oauth2-bearer'
     };
