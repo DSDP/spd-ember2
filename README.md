@@ -13,10 +13,18 @@ Se requiere tener instalado
 ## Instalación
 
 * `git clone <repository-url>`
-* `npm install`
-* `bower install`
+* `npm install && bower install`
 
-## Correr
+
+## Iniciar 
 
 * `ember server`
 * Desde el navegador acceder a [http://localhost:4200](http://localhost:4200).
+
+## Addons
+* *Font Awesome*
+ + http://fortawesome.github.io/Font-Awesome/icons/
+
+* *Simple Auth*
+ + http://ember-simple-auth.com/
+
