@@ -6,6 +6,8 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  app.import('bower_components/Materialize/bin/materialize.css');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

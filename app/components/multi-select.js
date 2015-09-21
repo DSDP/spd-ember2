@@ -12,21 +12,14 @@ export default Ember.Component.extend({
   threshold: 2,
   placeholder: '',
   showArrows: true,
-  controllerContent: null,
-  param: '',
+  controllerContent: Ember.Controller.create(),
 
   didInsertElement: function(){
-  	this.set('placeholder', 'Filtrar '+ this.get('placeholder'));
-
-  	this.set('controllerContent', Ember.Controller.create({
-  		sortProperties: ['oldOrder'],
-  		sortAscending: false,
-  		content: null,
-  	}));  	
-
-		this.findContent();
+	this.findContent();
   },
-
+  textPlaceHolder: function(){
+  	return 'Filtrar '+ this.get('placeholder');
+  }.property('placeholder'),
   actions:{  	
 		clickItem: function(object){
 			var list = this.get('listFiltered');
@@ -55,8 +48,8 @@ export default Ember.Component.extend({
 		},
 	},  
 	selectItem: function(object){
-		var listSelectedCount = this.get('listFilteredSelected').length + 1;
-		var newOrder 					= (object.get('selected') === false) ? listSelectedCount : 0;
+		var listSelectedCount	= this.get('listFilteredSelected').length + 1;
+		var newOrder 			= (object.get('selected') === false) ? listSelectedCount : 0;
 
 		object.set('newOrder', newOrder);
 
@@ -66,7 +59,7 @@ export default Ember.Component.extend({
 	moveItem: function(object, direction){
 		var content 			= this.get('controllerContent.content');
 		var order 				= (object && object.get('selected') === true) ? 'newOrder' : 'oldOrder';
-		var nextPrevItem 	= content.findProperty(order, object.get(order) + parseInt(direction));
+		var nextPrevItem 		= content.findBy(order, object.get(order) + parseInt(direction));
 		
 		if(nextPrevItem)
 		{
@@ -77,8 +70,7 @@ export default Ember.Component.extend({
 		//this.sortContent();
 	},
 
-  findContent: function(text){
-		//var results 		= this.store.findAll(this.get('modelName'));
+  findContent: function(){
 		var results 		= this.store.query(this.get('modelName'), {search: ''});
 		var controller 	= this.get('controllerContent');
 		var countItem 	= 0;
@@ -119,8 +111,6 @@ export default Ember.Component.extend({
 	
 			if(items && inputFilter.length >= this.get('threshold'))
 			{
-				//this.findContent(inputFilter)
-
 				filtered = items.filter(function(item){
 					return regex.test((item.get('label')).toLowerCase());
 				});
@@ -131,11 +121,12 @@ export default Ember.Component.extend({
 			}	
 		}
 
+
 		filtered = this.sortContent(filtered, 'oldOrder');
 
 		return filtered;
 
-  }.property('controllerContent.content.[]', 'controllerContent.content.[].oldOrder', 'controllerContent.content.[].selected', 'filterText'), 
+  }.property('controllerContent.content.[]', 'controllerContent.content.@each.oldOrder', 'controllerContent.content.@each.selected', 'filterText'), 
 
   listFilteredSelected: function(){
 		var regex 			= new RegExp(this.get('filterTextSelect').toString().toLowerCase());
@@ -162,5 +153,5 @@ export default Ember.Component.extend({
 		filtered = this.sortContent(filtered, 'newOrder');
 
 		return filtered;
-  }.property('controllerContent.content.[].selected', 'controllerContent.content.[].newOrder', 'filterTextSelect'), 
+  }.property('controllerContent.content.@each.selected', 'controllerContent.content.@each.newOrder', 'filterTextSelect'), 
 });
