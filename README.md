@@ -1,53 +1,22 @@
-# Test-auth4
+![alt tag](http://dsdp.hcdn.gob.ar/img/logo_spd.png)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+# SPD v2.0
 
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
+## Requisitos
+Se requiere tener instalado
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
 * [Bower](http://bower.io/)
 * [Ember CLI](http://www.ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
 
-## Installation
+## Instalación
 
-* `git clone <repository-url>` this repository
-* change into the new directory
+* `git clone <repository-url>`
 * `npm install`
 * `bower install`
 
-## Running / Development
+## Correr
 
 * `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+* Desde el navegador acceder a [http://localhost:4200](http://localhost:4200).
