@@ -34,6 +34,14 @@ module.exports = function(environment) {
           'style-src': "'self' http://sparlv2/ 'unsafe-inline'",
           'media-src': "'self' http://sparlv2/"
     };
+    
+    //ENV.APP.API_HOST = 'http://sparlv2';
+    //ENV.APP.API_NAMESPACE = 'api';
+    //ENV.APP.API_HOST = 'http://localhost:8000';
+
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    }
 
     ENV['simple-auth'] = {
       store: 'simple-auth-session-store:local-storage',

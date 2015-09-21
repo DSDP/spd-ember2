@@ -1,4 +1,6 @@
-import ApplicationAdapter from './application';
+import DRFAdapter from './drf';
 
-export default ApplicationAdapter.extend({
+export default DRFAdapter.extend({
+	namespace: 'api/sparl',
+	host: 'http://sparlv2'
 });

@@ -1,0 +1,36 @@
+<h1>Proyectos list</h1>
+
+<p>
+  {{link-to "New Proyecto" "proyectos.new" }}
+</p>
+
+{{#if model.length}}
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |proyecto|}}
+        <tr>
+          <td>
+            {{link-to "Edit" "proyectos.edit" proyecto}}
+          </td>
+          <td>
+            {{link-to "Show" "proyectos.show" proyecto}}
+          </td>
+          <td>
+            <a href="#" {{action "remove" proyecto}}>Remove</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p id="blankslate">
+    No Proyectos found
+  </p>
+{{/if}}

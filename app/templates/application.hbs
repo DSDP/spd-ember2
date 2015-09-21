@@ -3,6 +3,10 @@
 
 {{#if session.isAuthenticated}}
   <li><a {{ action 'invalidateSession' }}> <i class="fa fa-fw fa-lg fa-sign-out"></i> Logout</a></li>
+
+	{{render 'components'}}
+
 {{else}}
 	{{render 'login'}}
 {{/if}}
+
