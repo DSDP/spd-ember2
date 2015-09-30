@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="col s4">
+		<div class="row">
+			{{input type="text" value=text placeholder=placeholder enter="addFirstItem" maxlength=50 minlength=threshold}}
+		</div>
+
+		{{#if showResults}}
+			<div class="row">	
+			  {{#if results.isPending}}
+			    Cargando..
+			  {{else}} 
+			  		<ul class="collection">
+							{{#each item in results}}
+							<li class="collection-item">
+								<span class="list-group-item" {{action typeAction item}}>{{item.label}}</span>
+							</li>
+						{{/each}}
+					</ul>
+			  {{/if}}
+			</div>
+		{{/if}}
+
+		{{#if listSelected}}
+		<div class="row">
+			<ul class="collection">
+				{{#each item in listSelected}}
+						{{#if canEdit}}
+						<li class="collection-item" {{action 'removeItem' item}}>
+						  	<span>{{item.label}}</span>
+						  	
+						  	{{fa-icon "remove"}}
+						 </li>
+						{{else}}
+						  <li class="collection-item">*{{item.label}}</li>
+						{{/if}}
+				{{/each}}
+			</ul>
+		</div>
+		{{/if}}
+	</div>
+</div>

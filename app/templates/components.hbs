@@ -1,3 +1,8 @@
 
+<div style="display:none;">
 {{multi-select modelName='proyecto' param='search' store=store threshold=3 maxResults=5 placeholder='proyectos' showArrows=true}}
+</div>
 
+<div>
+{{input-suggest model='proyecto' store=store threshold=3 maxResults=5 typeAction='addItem' canEdit=true placeholder='Buscar proyectos'}}
+</div>
